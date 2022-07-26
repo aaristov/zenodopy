@@ -6,12 +6,12 @@ import os
 ACCESS_TOKEN = os.getenv('ZENODO_TOKEN')
 
 # can also hardcode sandbox token using tox locally
-# ACCESS_TOKEN = ''
+ACCESS_TOKEN = 'FBCqwQN0RsYMC0FVXtEolVLDFFx45zVLYXxfgypWz0b7PsN4fXRlHaGx6ZBg'
 
 
 def test_client():
     _ = zen.Client()
-    _ = zen.Client(ACCESS_TOKEN=ACCESS_TOKEN, sandbox=True)
+    _ = zen.Client(token=ACCESS_TOKEN, sandbox=True)
     # zeno.list_projects
 
 
@@ -30,7 +30,7 @@ def test_get_baseurl():
 
 
 def test_get_key():
-    zeno = zen.Client(ACCESS_TOKEN=ACCESS_TOKEN, sandbox=True)
+    zeno = zen.Client(token=ACCESS_TOKEN, sandbox=True)
     zeno._get_key()
     zeno.title
     zeno.bucket
@@ -43,7 +43,7 @@ def test_get_key():
 
 
 def test_get_headers():
-    zeno = zen.Client(ACCESS_TOKEN=ACCESS_TOKEN, sandbox=True)
+    zeno = zen.Client(token=ACCESS_TOKEN, sandbox=True)
     zeno._get_headers()
 
     zeno = zen.Client()
@@ -110,7 +110,7 @@ def test_download_file():
 
 
 def test_tutorial():
-    zeno = zen.Client(ACCESS_TOKEN=ACCESS_TOKEN, sandbox=True)
+    zeno = zen.Client(token=ACCESS_TOKEN, sandbox=True)
     zeno.list_projects
     zeno.list_files
     zeno.title
