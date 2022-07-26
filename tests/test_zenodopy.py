@@ -21,24 +21,24 @@ def test_read_config():
         zeno._read_config()
 
 
-def test_get_baseurl():
+def test_endpoint():
     zeno = zen.Client(sandbox=True)
-    assert zeno._get_baseurl() == 'https://sandbox.zenodo.org/api'
+    assert zeno._endpoint == 'https://sandbox.zenodo.org/api'
 
     zeno = zen.Client()
-    assert zeno._get_baseurl() == 'https://zenodo.org/api'
+    assert zeno._endpoint == 'https://zenodo.org/api'
 
 
 def test_get_key():
     zeno = zen.Client(token=ACCESS_TOKEN, sandbox=True)
-    zeno._get_key()
+    zeno._token
     zeno.title
     zeno.bucket
     zeno.deposition_id
     zeno.sandbox
 
     zobj = zen.Client()
-    if zobj._get_key() is None:
+    if zobj._token is None:
         pass
 
 
