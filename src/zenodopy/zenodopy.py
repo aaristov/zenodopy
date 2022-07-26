@@ -357,10 +357,10 @@ class Client(object):
             for file in tmp:
                 # dic[file['title']] = file['id']
                 print(f"{file['title']} ----- {file['id']}")
+            return tmp
         else:
-            print(' ** need to setup ~/.zenodo_token file ** ')
+            raise ValueError(' ** need to setup ~/.zenodo_token file ** ')
 
-        return tmp
 
     @property
     def list_files(self):
