@@ -1,6 +1,10 @@
 [build-system]
-requires = ["setuptools>=42.0", "wheel"]
+requires = ["setuptools>=42.0", "wheel", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
+
+
+[tool.setuptools_scm]
+write_to = "src/zenodopy/_version.py"
 
 [tool.pytest.ini_options]
 addopts = "--cov=zenodopy"
