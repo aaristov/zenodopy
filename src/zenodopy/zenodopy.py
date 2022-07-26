@@ -360,11 +360,7 @@ class Client(object):
         else:
             print(' ** need to setup ~/.zenodo_token file ** ')
 
-        # print('Project Name ---- ID')
-        # print('------------------------')
-        # for key, val in dic.items():
-        #    print(f"{key} ---- {val}")
-        # return dic
+        return tmp
 
     @property
     def list_files(self):
@@ -379,8 +375,9 @@ class Client(object):
             print('------------------------')
             for file in dep['files']:
                 print(file['filename'])
+            return dep
         else:
-            print(" ** the object is not pointing to a project. Use either .set_project() or .create_project() before listing files ** ")
+            raise ValueError(" ** the object is not pointing to a project. Use either .set_project() or .create_project() before listing files ** ")
             # except UserWarning:
             # warnings.warn("The object is not pointing to a project. Either create a project or explicity set the project'", UserWarning)
 
